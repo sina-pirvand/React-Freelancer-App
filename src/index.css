@@ -68,10 +68,6 @@ body {
   margin: 0;
 }
 
-label {
-  display: block;
-}
-
 button {
   cursor: pointer;
   outline: none;
