@@ -2,6 +2,7 @@ import { useState } from "react";
 import Textfield from "../../common/Textfield";
 import { useMutation } from "@tanstack/react-query";
 import { getOtp } from "../../services/authService";
+import toast from "react-hot-toast";
 
 const SendOTPForm = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -13,10 +14,11 @@ const SendOTPForm = () => {
   const sendOtpHandler = async (e) => {
     e.preventDefault();
     try {
-      const data = await mutateAsync({ phoneNumber });
-      console.log(data);
+      const res = await mutateAsync({ phoneNumber }); //{phoneNumber:phoneNumber}
+      toast.success(res.message);
     } catch (error) {
-      console.log(error);
+      toast.error(`${error?.response?.data?.message}
+      لطفا شماره موبایل صحیح وارد نمایید`);
     }
   };
 

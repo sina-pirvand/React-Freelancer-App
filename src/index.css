@@ -68,6 +68,10 @@ body {
   margin: 0;
 }
 
+input[type="number"] {
+  direction: ltr;
+}
+
 button {
   cursor: pointer;
   outline: none;

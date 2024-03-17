@@ -8,7 +8,7 @@ const Textfield = ({ label, name, value, onChange }) => {
         {label}
       </label>
       <input
-        type="text"
+        type="number"
         id={name}
         name={name}
         className="textfield-input"
