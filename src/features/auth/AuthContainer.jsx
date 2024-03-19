@@ -9,7 +9,12 @@ const AuthContainer = () => {
   const [step, setStep] = useState(2);
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const { isPending, error, data, mutateAsync } = useMutation({
+  const {
+    isPending,
+    error,
+    data: otpResponse,
+    mutateAsync,
+  } = useMutation({
     mutationFn: getOtp,
   });
 
@@ -44,6 +49,7 @@ const AuthContainer = () => {
             // handleBack={() => setStep(1)}
             handleBack={() => setStep((step) => step - 1)}
             handleResendOtp={sendOtpHandler}
+            otpResponse={otpResponse}
           />
         );
       default:

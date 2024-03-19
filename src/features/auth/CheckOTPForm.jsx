@@ -8,7 +8,12 @@ import { HiArrowRight } from "react-icons/hi";
 
 const RESEND_TIME = 90;
 
-const CheckOTPForm = ({ phoneNumber, handleBack, handleResendOtp }) => {
+const CheckOTPForm = ({
+  phoneNumber,
+  handleBack,
+  handleResendOtp,
+  otpResponse,
+}) => {
   const [otp, setOtp] = useState("");
   const [time, setTime] = useState(RESEND_TIME);
   const { isPending, error, data, mutateAsync } = useMutation({
@@ -50,9 +55,20 @@ const CheckOTPForm = ({ phoneNumber, handleBack, handleResendOtp }) => {
         <button onClick={handleBack}>
           <HiArrowRight className="w-7 h-10 text-secondary-400" />
         </button>
-        <h1 className="font-bold text-secondary-400 my-3 text-xl">
+        <h1 className="font-bold text-secondary-700 my-3 text-xl">
           کد تایید را وارد کنید
         </h1>
+        {otpResponse && (
+          <p className="mb-3 text-secondary-400 ">
+            {otpResponse?.message}
+            <button
+              onClick={handleBack}
+              className="ms-1 border-b-2 border-primary-500 text-primary-500"
+            >
+              ویرایش
+            </button>
+          </p>
+        )}
         <OTPInput
           value={otp}
           onChange={setOtp}
