@@ -1,29 +1,12 @@
-import { useState } from "react";
 import Textfield from "../../common/Textfield";
-import { useMutation } from "@tanstack/react-query";
-import { getOtp } from "../../services/authService";
-import toast from "react-hot-toast";
 import Loading from "../../common/Loading";
 
-const SendOTPForm = ({ setStep }) => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-
-  const { isPending, error, data, mutateAsync } = useMutation({
-    mutationFn: getOtp,
-  });
-
-  const sendOtpHandler = async (e) => {
-    e.preventDefault();
-    try {
-      const res = await mutateAsync({ phoneNumber }); //{phoneNumber:phoneNumber}
-      setStep(2);
-      toast.success(res.message);
-    } catch (error) {
-      toast.error(`${error?.response?.data?.message}
-      فرمت شماره نادرست است`);
-    }
-  };
-
+const SendOTPForm = ({
+  sendOtpHandler,
+  isPending,
+  phoneNumber,
+  setPhoneNumber,
+}) => {
   return (
     <div>
       <form className="space-y-8" onSubmit={sendOtpHandler}>
@@ -31,9 +14,7 @@ const SendOTPForm = ({ setStep }) => {
           name="phoneNumber"
           value={phoneNumber}
           label="شماره موبایل"
-          onChange={(e) => {
-            setPhoneNumber(e.target.value);
-          }}
+          onChange={setPhoneNumber}
         />
         <div>
           {isPending ? (
