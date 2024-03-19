@@ -3,7 +3,7 @@ const Textfield = ({ label, name, value, onChange }) => {
     <div>
       <label
         htmlFor={name}
-        className="block font-bold text-secondary-400 my-3 text-xl"
+        className="block font-bold text-secondary-500 my-3 text-xl"
       >
         {label}
       </label>

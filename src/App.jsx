@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
 import Auth from "./pages/Auth";
+import CompleteProfile from "./pages/CompleteProfile";
 
 function App() {
   const queryClient = new QueryClient();
@@ -13,6 +14,7 @@ function App() {
         <Toaster position="top-left" reverseOrder={false} />
         <Routes>
           <Route path="/auth" element={<Auth />}></Route>
+          <Route path="/complete-profile" element={<CompleteProfile />}></Route>
         </Routes>
       </QueryClientProvider>
     </div>
