@@ -11,6 +11,7 @@ const SendOTPForm = ({
     <div>
       <form className="space-y-8" onSubmit={sendOtpHandler}>
         <Textfield
+          type="number"
           name="phoneNumber"
           value={phoneNumber}
           label="شماره موبایل"

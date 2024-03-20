@@ -1,4 +1,4 @@
-const Textfield = ({ label, name, value, onChange }) => {
+const Textfield = ({ label, name, value, onChange, type }) => {
   return (
     <div>
       <label
@@ -8,7 +8,7 @@ const Textfield = ({ label, name, value, onChange }) => {
         {label}
       </label>
       <input
-        type="number"
+        type={type || "text"}
         id={name}
         name={name}
         className="textfield-input"
