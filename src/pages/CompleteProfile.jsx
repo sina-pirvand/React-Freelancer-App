@@ -2,8 +2,10 @@ import CompleteProfileForm from "../features/auth/CompleteProfileForm";
 
 const CompleteProfile = () => {
   return (
-    <div>
-      <CompleteProfileForm />
+    <div className="container xl:max-w-screen-xl">
+      <div>
+        <CompleteProfileForm />
+      </div>
     </div>
   );
 };

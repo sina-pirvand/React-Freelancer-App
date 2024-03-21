@@ -14,3 +14,7 @@ export const completeProfile = (data) => {
     .post("/user/complete-profile", data)
     .then(({ data }) => data.data);
 };
+
+export const getUser = (data) => {
+  return http.get("/user/profile", data).then(({ data }) => data.data);
+};

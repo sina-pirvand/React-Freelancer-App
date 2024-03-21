@@ -6,22 +6,25 @@ import Auth from "./pages/Auth";
 import CompleteProfile from "./pages/CompleteProfile";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
+import AppLayout from "./common/AppLayout";
+import Owner from "./pages/Owner";
 
 function App() {
   const queryClient = new QueryClient();
 
   return (
-    <div className="container xl:max-w-screen-xl">
-      <QueryClientProvider client={queryClient}>
-        <Toaster position="top-left" reverseOrder={false} />
-        <Routes>
-          <Route path="/auth" element={<Auth />}></Route>
-          <Route path="/complete-profile" element={<CompleteProfile />}></Route>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="*" element={<NotFound />}></Route>
-        </Routes>
-      </QueryClientProvider>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <Toaster position="top-left" reverseOrder={false} />
+      <Routes>
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/complete-profile" element={<CompleteProfile />} />
+        <Route element={<AppLayout />}>
+          <Route path="/owner" element={<Owner />} />
+        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </QueryClientProvider>
   );
 }
 
