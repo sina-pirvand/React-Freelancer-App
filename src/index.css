@@ -49,6 +49,27 @@
   .sidebar-item {
     @apply flex items-center  gap-2  p-2 rounded-lg cursor-pointer text-secondary-700 hover:bg-primary-100/60 hover:text-primary-900 transition-all duration-300;
   }
+  .btn--outline {
+    @apply border border-secondary-700 text-secondary-700;
+  }
+  .btn--danger {
+    @apply border border-rose-700 text-rose-700;
+  }
+  .badge {
+    @apply inline-block whitespace-nowrap rounded-xl px-2 py-0.5;
+  }
+  .badge--primary {
+    @apply bg-primary-900 text-white;
+  }
+  .badge--secondary {
+    @apply bg-secondary-200 text-secondary-600;
+  }
+  .badge--success {
+    @apply bg-green-500 text-white;
+  }
+  .badge--danger {
+    @apply bg-red-500 text-white;
+  }
 }
 
 li.active {
