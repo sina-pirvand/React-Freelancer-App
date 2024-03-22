@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
@@ -7,7 +7,9 @@ import CompleteProfile from "./pages/CompleteProfile";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import AppLayout from "./common/AppLayout";
-import Owner from "./pages/Owner";
+import OwnerDashboard from "./pages/OwnerDashboard";
+import Projects from "./pages/Projects";
+import Project from "./pages/Project";
 
 function App() {
   const queryClient = new QueryClient();
@@ -18,8 +20,11 @@ function App() {
       <Routes>
         <Route path="/auth" element={<Auth />} />
         <Route path="/complete-profile" element={<CompleteProfile />} />
-        <Route element={<AppLayout />}>
-          <Route path="/owner" element={<Owner />} />
+        <Route path="/owner" element={<AppLayout />}>
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<OwnerDashboard />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="project/:id" element={<Project />} />
         </Route>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />

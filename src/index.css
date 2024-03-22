@@ -46,6 +46,13 @@
   .btn-primary {
     @apply bg-primary-900 text-white hover:shadow-primary-200;
   }
+  .sidebar-item {
+    @apply flex items-center  gap-2  p-2 rounded-lg cursor-pointer text-secondary-700 hover:bg-primary-100/60 hover:text-primary-900 transition-all duration-300;
+  }
+}
+
+li.active {
+  background-color: aquamarine;
 }
 
 html,
