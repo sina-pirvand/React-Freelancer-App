@@ -1,4 +1,12 @@
-const Textfield = ({ label, name, value, onChange, type }) => {
+const Textfield = ({
+  label,
+  name,
+  type,
+  register,
+  required,
+  validationSchema,
+  errors,
+}) => {
   return (
     <div>
       <label
@@ -6,16 +14,20 @@ const Textfield = ({ label, name, value, onChange, type }) => {
         className="block font-bold text-secondary-500 my-3 text-xl"
       >
         {label}
+        {required && <span className="text--error">*</span>}
       </label>
       <input
+        {...register(name, { validationSchema })}
         type={type || "text"}
         id={name}
-        name={name}
         className="textfield-input"
-        value={value}
-        onChange={onChange}
         autoComplete="off"
       />
+      {errors && errors[name] && (
+        <span className="text--error block text-sm mt-2">
+          {errors[name]?.message}
+        </span>
+      )}
     </div>
   );
 };
