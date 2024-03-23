@@ -19,7 +19,8 @@ const ProjectRow = ({ project, index }) => {
       <td className="text-wrap max-w-[200px]">
         {truncateText(project.title, 30)}
       </td>
-      <td>{project.category.title}</td>
+      {/* //Note: CHANGE AFTER DATABASE PROBLEM */}
+      <td>{project.category || "برنامه نویسی"}</td>
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
       <td>
@@ -78,11 +79,13 @@ const ProjectRow = ({ project, index }) => {
           <ConfirmDelete
             resourceName={project.title}
             onClose={() => SetIsDeleteOpen(false)}
-            onConfirm={removeProject(project._id, {
-              onSuccess: () => {
-                SetIsDeleteOpen(false);
-              },
-            })}
+            onConfirm={() =>
+              removeProject(project._id, {
+                onSuccess: () => {
+                  SetIsDeleteOpen(false);
+                },
+              })
+            }
             disabled={false}
           />
         </Modal>
