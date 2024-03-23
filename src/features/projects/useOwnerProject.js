@@ -3,7 +3,7 @@ import { getOwnerProjectsApi } from "../../services/projectService";
 
 const useOwnerProjects = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["projects"],
+    queryKey: ["owner-projects"],
     queryFn: getOwnerProjectsApi,
   });
   const { projects } = data || {};
