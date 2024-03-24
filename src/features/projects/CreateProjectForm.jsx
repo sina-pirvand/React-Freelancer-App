@@ -1,6 +1,12 @@
+import { useState } from "react";
+import RHFSelect from "../../common/RHFSelect";
 import TextField from "../../common/Textfield/index";
 import { useForm } from "react-hook-form";
+import { TagsInput } from "react-tag-input-component";
+import DatePickerField from "../../common/DatePickerField";
 const CreateProjectForm = () => {
+  const [tags, setTags] = useState([]);
+  const [date, setDate] = useState(new Date());
   const {
     register,
     formState: { errors },
@@ -56,6 +62,27 @@ const CreateProjectForm = () => {
         errors={errors}
         type="number"
       />
+      <RHFSelect
+        label="دسته بندی پروژه"
+        name="category"
+        register={register}
+        options={[]}
+      />
+      <div>
+        <label className="block font-bold text-secondary-500/80 mt-3 text-xl">
+          تگ ها
+        </label>
+        <p className="text-[0.8rem] text-secondary-400">
+          به هر تعداد که میخواهید نام تگ بنویسید. بعد تایید شما اضافه خواهد شد
+        </p>
+        <TagsInput
+          value={tags}
+          onChange={setTags}
+          name="tags"
+          placeHolder="نام تگ..."
+        />
+      </div>
+      <DatePickerField date={date} setDate={setDate} label="تعیین ددلاین" />
       <div className="pt-4">
         <button type="submit" className="btn btn-primary ms-auto block">
           افزودن پروژه

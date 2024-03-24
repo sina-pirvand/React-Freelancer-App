@@ -11,7 +11,7 @@ const Textfield = ({
     <div>
       <label
         htmlFor={name}
-        className="block font-bold text-secondary-500 my-3 text-xl"
+        className="block font-bold text-secondary-500/80 my-3 text-xl"
       >
         {label}
         {required && <span className="text-error">*</span>}
