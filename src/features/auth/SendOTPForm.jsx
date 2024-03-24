@@ -1,21 +1,15 @@
 import Textfield from "../../common/Textfield";
 import Loading from "../../common/Loading";
 
-const SendOTPForm = ({
-  sendOtpHandler,
-  isPending,
-  phoneNumber,
-  setPhoneNumber,
-}) => {
+const SendOTPForm = ({ sendOtpHandler, isPending, register }) => {
   return (
     <div>
       <form className="space-y-8" onSubmit={sendOtpHandler}>
         <Textfield
-          type="number"
-          name="phoneNumber"
-          value={phoneNumber}
           label="شماره موبایل"
-          onChange={setPhoneNumber}
+          name="phoneNumber"
+          type="number"
+          register={register}
         />
         <div>
           {isPending ? (

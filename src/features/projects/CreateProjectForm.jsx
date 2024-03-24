@@ -5,14 +5,14 @@ const CreateProjectForm = () => {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm();
+  } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
     console.log(data);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <TextField
         label="عنوان پروژه"
         name="title"
@@ -27,9 +27,40 @@ const CreateProjectForm = () => {
         }}
         errors={errors}
       />
-      <button type="submit" className="btn btn-primary">
-        افزودن پروژه
-      </button>
+      <TextField
+        label="توضیحات"
+        name="description"
+        register={register}
+        required
+        validationSchema={{
+          required: "توضیحات پروژه نباید خالی باشد",
+          minLength: {
+            value: 10,
+            message: "طول توضیحات پروژه نباید کمتر از 10 حرف باشد",
+          },
+        }}
+        errors={errors}
+      />
+      <TextField
+        label="بودجه(تومان)"
+        name="budget"
+        register={register}
+        required
+        validationSchema={{
+          required: "مقدار بودجه نباید خالی باشد",
+          minLength: {
+            value: 5,
+            message: "قیمت باید حداقل 5 رقم داشته باشد",
+          },
+        }}
+        errors={errors}
+        type="number"
+      />
+      <div className="pt-4">
+        <button type="submit" className="btn btn-primary ms-auto block">
+          افزودن پروژه
+        </button>
+      </div>
     </form>
   );
 };

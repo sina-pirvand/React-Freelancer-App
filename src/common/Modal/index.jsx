@@ -21,7 +21,7 @@ const Modal = ({ open, onClose, title, children }) => {
               className="w-6 h-6 cursor-pointer hover:rotate-180 transition-all duration-700"
             />
           </div>
-          <p className="text-wrap">{children}</p>
+          <div className="text-wrap">{children}</div>
         </div>
       </div>
     )
