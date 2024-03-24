@@ -4,9 +4,12 @@ import TextField from "../../common/Textfield/index";
 import { useForm } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 import DatePickerField from "../../common/DatePickerField";
+import useCategories from "../../hooks/useCategories";
 const CreateProjectForm = () => {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
+  const { categories } = useCategories();
+  console.log(categories);
   const {
     register,
     formState: { errors },
@@ -66,7 +69,7 @@ const CreateProjectForm = () => {
         label="دسته بندی پروژه"
         name="category"
         register={register}
-        options={[]}
+        options={categories}
       />
       <div>
         <label className="block font-bold text-secondary-500/80 mt-3 text-xl">
