@@ -13,7 +13,7 @@ const RHFSelect = ({ label, name, register, options, required }) => {
         id={name}
         className="textfield-input mt-2 block text-secondary-500"
       >
-        {options.map((option) => (
+        {options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}
           </option>

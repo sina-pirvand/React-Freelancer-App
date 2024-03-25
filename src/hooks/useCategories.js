@@ -10,29 +10,17 @@ const useCategories = () => {
   //Note: SET MANUALLY FOR NOW DUE TO API PROBLEM
   rawCategories.categories = [
     {
-      _id: 1,
-      title: "فرانت اند",
-    },
-    {
-      _id: 2,
-      title: "بک اند",
-    },
-    {
-      _id: 3,
-      title: "فول استک",
-    },
-    {
-      _id: 4,
-      title: "طراحی UI",
+      _id: "653cea57fc95582069ed806f",
+      title: "برنامه نویسی",
     },
   ];
 
-  const categories = rawCategories.categories.map((item) => ({
+  const categories = rawCategories.categories?.map((item) => ({
     label: item.title,
     value: item._id,
   }));
 
-  const transformedCategories = rawCategories.map((item) => ({
+  const transformedCategories = rawCategories?.map((item) => ({
     label: item.title,
     value: item.englishTitle,
   }));

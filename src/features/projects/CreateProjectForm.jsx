@@ -5,20 +5,38 @@ import { useForm } from "react-hook-form";
 import { TagsInput } from "react-tag-input-component";
 import DatePickerField from "../../common/DatePickerField";
 import useCategories from "../../hooks/useCategories";
-const CreateProjectForm = () => {
+import useCreateProject from "./useCreateProject";
+import Loading from "../../common/Loading";
+
+const CreateProjectForm = ({ onClose, projectToEdit }) => {
   const [tags, setTags] = useState([]);
   const [date, setDate] = useState(new Date());
   const { categories } = useCategories();
-  console.log(categories);
+  const { isCreating, createProject } = useCreateProject();
+
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm({ mode: "onChange" });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const newProject = {
+      ...data,
+      deadline: new Date(date).toISOString(),
+      tags,
+    };
+
+    createProject(newProject, {
+      onSuccess: () => {
+        onClose();
+        reset();
+      },
+    });
   };
+
+  //EDIT PROJECT LOGIC
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -87,9 +105,13 @@ const CreateProjectForm = () => {
       </div>
       <DatePickerField date={date} setDate={setDate} label="تعیین ددلاین" />
       <div className="pt-4">
-        <button type="submit" className="btn btn-primary ms-auto block">
-          افزودن پروژه
-        </button>
+        {isCreating ? (
+          <Loading />
+        ) : (
+          <button type="submit" className="btn btn-primary ms-auto block">
+            افزودن پروژه
+          </button>
+        )}
       </div>
     </form>
   );

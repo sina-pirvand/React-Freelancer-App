@@ -8,6 +8,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { TbEdit } from "react-icons/tb";
 import ConfirmDelete from "../../common/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
+import CreateProjectForm from "./CreateProjectForm";
 
 const ProjectRow = ({ project, index }) => {
   const [isEditOpen, SetIsEditOpen] = useState(false);
@@ -19,12 +20,14 @@ const ProjectRow = ({ project, index }) => {
       <td className="text-wrap max-w-[200px]">
         {truncateText(project.title, 30)}
       </td>
+
       {/* //Note: CHANGE AFTER DATABASE PROBLEM */}
-      <td>{project.category || "برنامه نویسی"}</td>
+      <td>{project?.category || "برنامه نویسی"}</td>
+
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
-      <td>
-        <div className="flex flex-wrap items-center gap-2 max-w-[200px]">
+      <td className=" max-w-[200px]">
+        <div className="flex flex-wrap items-center gap-2">
           {project.tags.map((tag) => (
             <span key={tag} className="badge badge--secondary">
               {tag}
@@ -55,7 +58,10 @@ const ProjectRow = ({ project, index }) => {
           open={isEditOpen}
           onClose={() => SetIsEditOpen(false)}
         >
-          متن تست
+          <CreateProjectForm
+            onClose={() => SetIsEditOpen(false)}
+            projectToEdit={project}
+          />
         </Modal>
         {/* Delete  */}
         <button>

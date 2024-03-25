@@ -20,7 +20,7 @@ const AuthContainer = () => {
 
   const sendOtpHandler = async (data) => {
     try {
-      const res = await mutateAsync({ data });
+      const res = await mutateAsync(data);
       setStep(2);
       toast.success(res.message);
     } catch (error) {

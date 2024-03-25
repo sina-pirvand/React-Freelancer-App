@@ -96,6 +96,10 @@ body {
   margin: 0;
 }
 
+span.badge.badge--secondary {
+  text-wrap: wrap;
+}
+
 input[type="number"],
 input[name="email"] {
   direction: ltr;
