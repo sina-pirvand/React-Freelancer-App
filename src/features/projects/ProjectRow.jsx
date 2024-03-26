@@ -9,6 +9,7 @@ import { TbEdit } from "react-icons/tb";
 import ConfirmDelete from "../../common/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
 import CreateProjectForm from "./CreateProjectForm";
+import ToggleProjectStatus from "./ToggleProjectStatus";
 
 const ProjectRow = ({ project, index }) => {
   const [isEditOpen, SetIsEditOpen] = useState(false);
@@ -39,11 +40,12 @@ const ProjectRow = ({ project, index }) => {
         {project.freelancer?.name || "-"}
       </td>
       <td>
-        {project.status === "OPEN" ? (
+        {/* {project.status === "OPEN" ? (
           <span className="badge badge--success">باز</span>
         ) : (
           <span className="badge badge--danger">بسته</span>
-        )}
+        )} */}
+        <ToggleProjectStatus project={project} />
       </td>
       <td>
         {/* Edit  */}
