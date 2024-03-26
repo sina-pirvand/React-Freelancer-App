@@ -7,19 +7,37 @@ import DatePickerField from "../../common/DatePickerField";
 import useCategories from "../../hooks/useCategories";
 import useCreateProject from "./useCreateProject";
 import Loading from "../../common/Loading";
+import useEditProject from "./useEditProject";
 
-const CreateProjectForm = ({ onClose, projectToEdit }) => {
-  const [tags, setTags] = useState([]);
-  const [date, setDate] = useState(new Date());
+const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
+  //EDIT PROJECT LOGIC
+  const { _id: editId } = projectToEdit;
+  const isEditSession = Boolean(editId);
+  const {
+    title,
+    description,
+    budget,
+    deadline,
+    // category,
+    tags: prevTags,
+  } = projectToEdit;
+  let editvalues = {};
+  if (isEditSession) {
+    editvalues = { title, description, budget };
+  }
+
+  const [tags, setTags] = useState(prevTags || []);
+  const [date, setDate] = useState(new Date(deadline || ""));
   const { categories } = useCategories();
   const { isCreating, createProject } = useCreateProject();
+  const { isEditing, editProject } = useEditProject();
 
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
-  } = useForm({ mode: "onChange" });
+  } = useForm({ mode: "onChange", defaultValues: editvalues });
 
   const onSubmit = (data) => {
     const newProject = {
@@ -27,16 +45,25 @@ const CreateProjectForm = ({ onClose, projectToEdit }) => {
       deadline: new Date(date).toISOString(),
       tags,
     };
-
-    createProject(newProject, {
-      onSuccess: () => {
-        onClose();
-        reset();
-      },
-    });
+    if (isEditSession) {
+      editProject(
+        { id: editId, newProject },
+        {
+          onSuccess: () => {
+            onClose();
+            reset();
+          },
+        }
+      );
+    } else {
+      createProject(newProject, {
+        onSuccess: () => {
+          onClose();
+          reset();
+        },
+      });
+    }
   };
-
-  //EDIT PROJECT LOGIC
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
@@ -108,8 +135,11 @@ const CreateProjectForm = ({ onClose, projectToEdit }) => {
         {isCreating ? (
           <Loading />
         ) : (
-          <button type="submit" className="btn btn-primary ms-auto block">
-            افزودن پروژه
+          <button
+            type="submit"
+            className="btn btn-primary ms-auto block px-6 py-3 text-base"
+          >
+            تایید
           </button>
         )}
       </div>

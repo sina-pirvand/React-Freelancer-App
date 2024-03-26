@@ -7,6 +7,7 @@ const useCreateProject = () => {
   const { isPending: isCreating, mutate: createProject } = useMutation({
     mutationFn: createProjectApi,
     onSuccess: (data) => {
+      console.log(isCreating, createProject);
       toast.success(data.message);
       queryClient.invalidateQueries({
         queryKey: ["owner-projects"],
