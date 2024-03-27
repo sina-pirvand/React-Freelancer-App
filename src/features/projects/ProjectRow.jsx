@@ -20,7 +20,7 @@ const ProjectRow = ({ project, index }) => {
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td className="text-wrap min-w-[200px]">
+      <td className="text-wrap min-w-[150px]">
         {truncateText(project.title, 30)}
       </td>
 
@@ -29,7 +29,7 @@ const ProjectRow = ({ project, index }) => {
 
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
-      <td className=" min-w-[200px]">
+      <td className=" min-w-[150px]">
         <div className="flex flex-wrap items-center gap-2">
           {project.tags.map((tag) => (
             <span key={tag} className="badge badge--secondary">
@@ -38,7 +38,7 @@ const ProjectRow = ({ project, index }) => {
           ))}
         </div>
       </td>
-      <td className="text-wrap min-w-[200px]">
+      <td className="text-wrap min-w-[150px]">
         {project.freelancer?.name || "-"}
       </td>
       <td>
