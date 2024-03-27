@@ -10,15 +10,17 @@ import ConfirmDelete from "../../common/ConfirmDelete";
 import useRemoveProject from "./useRemoveProject";
 import CreateProjectForm from "./CreateProjectForm";
 import ToggleProjectStatus from "./ToggleProjectStatus";
+import { TiDocumentText } from "react-icons/ti";
+import { Link } from "react-router-dom";
 
 const ProjectRow = ({ project, index }) => {
   const [isEditOpen, SetIsEditOpen] = useState(false);
   const [isDeleteOpen, SetIsDeleteOpen] = useState(false);
-  const { removeProject, isDeleting } = useRemoveProject();
+  const { removeProject } = useRemoveProject();
   return (
     <Table.Row>
       <td>{index + 1}</td>
-      <td className="text-wrap max-w-[200px]">
+      <td className="text-wrap min-w-[200px]">
         {truncateText(project.title, 30)}
       </td>
 
@@ -27,7 +29,7 @@ const ProjectRow = ({ project, index }) => {
 
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
-      <td className=" max-w-[200px]">
+      <td className=" min-w-[200px]">
         <div className="flex flex-wrap items-center gap-2">
           {project.tags.map((tag) => (
             <span key={tag} className="badge badge--secondary">
@@ -36,7 +38,7 @@ const ProjectRow = ({ project, index }) => {
           ))}
         </div>
       </td>
-      <td className="text-wrap max-w-[200px]">
+      <td className="text-wrap min-w-[200px]">
         {project.freelancer?.name || "-"}
       </td>
       <td>
@@ -92,6 +94,12 @@ const ProjectRow = ({ project, index }) => {
             disabled={false}
           />
         </Modal>
+      </td>
+      <td>
+        {/* NAVGATES TO: owner/project/<project id> */}
+        <Link to={project._id}>
+          <TiDocumentText className="w-6 h-6 ms-6 text-primary-600" />
+        </Link>
       </td>
     </Table.Row>
   );

@@ -7,8 +7,8 @@ import { useState } from "react";
 
 const Header = () => {
   const [open, setOpen] = useState(true);
-  const { data } = useUser();
-  console.log(data);
+  // const { data } = useUser();
+
   return (
     <div className="col-span-2 px-8 py-4 border-b border-secondary-200 flex justify-between lg:ps-[16.5rem]">
       <h1 className="text-secondary-700 text-xl font-bold">پروژه های شما</h1>

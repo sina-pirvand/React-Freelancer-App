@@ -1,9 +1,5 @@
 const Empty = ({ resourceName }) => {
-  return (
-    <div>
-      <p>{resourceName} ای یافت نشد</p>
-    </div>
-  );
+  return <p className="p-4">{resourceName} یافت نشد</p>;
 };
 
 export default Empty;

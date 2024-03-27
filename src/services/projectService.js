@@ -23,3 +23,8 @@ export const toggleProjectStatusApi = ({ id, data }) => {
   // data = {status = "OPEN"/"CLOSED"}
   return http.patch(`/project/${id}`, data).then(({ data }) => data.data);
 };
+
+export const getProjectApi = (id) => {
+  // data = {status = "OPEN"/"CLOSED"}
+  return http.get(`/project/${id}`).then(({ data }) => data.data);
+};
