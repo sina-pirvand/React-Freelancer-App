@@ -4,7 +4,7 @@ import useMoveBack from "../../hooks/useMoveBack";
 const ProjectHeader = ({ project }) => {
   const moveBack = useMoveBack();
   return (
-    <div className="flex items-center justify-between px-4 bg-secondary-100">
+    <div className="flex flex-col md:flex-row items-start  md:items-center justify-between mb-5 md:mb-10">
       <button onClick={moveBack}>
         <HiArrowRight className="w-7 h-10 text-secondary-400" />
       </button>

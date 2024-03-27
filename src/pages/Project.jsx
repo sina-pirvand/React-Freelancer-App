@@ -5,7 +5,6 @@ import useProject from "../features/project/useProject";
 
 const Project = () => {
   const { isLoading, project } = useProject();
-  console.log(project);
   if (isLoading) return <Loading />;
   return (
     <div>
