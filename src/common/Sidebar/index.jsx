@@ -4,7 +4,7 @@ import { HiOutlineCollection } from "react-icons/hi";
 
 const Sidebar = () => {
   return (
-    <div className="px-4 py-8 border-l border-secondary-100">
+    <div className="px-4 py-8 border-l border-secondary-100 bg-secondary-0">
       <ul className="flex flex-col gap-4">
         <li>
           <NavLink

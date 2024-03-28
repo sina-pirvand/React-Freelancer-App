@@ -12,7 +12,7 @@ const Header = () => {
 
   return (
     <div
-      className={`col-span-2 px-8 py-4 border-b border-secondary-200 flex justify-between lg:ps-[16.5rem] ${
+      className={`col-span-2 px-8 py-4 border-b border-secondary-200 bg-secondary-0 flex justify-between lg:ps-[16.5rem] ${
         isLoading ? "blur-sm" : ""
       }`}
     >
