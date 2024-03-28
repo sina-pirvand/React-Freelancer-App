@@ -1,13 +1,16 @@
 import { useEffect } from "react";
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
 import { toast } from "react-hot-toast";
+import useLocalStorageState from "../hooks/useLocalStorageState";
 
 // 1. create context
 const DarkModeContext = createContext();
 
 // 2. create providers
 export const DarkModeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  //6 custom hook
+  const [isDarkMode, setIsDarkMode] = useLocalStorageState("isDarkMode", false);
+
   const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
   //5

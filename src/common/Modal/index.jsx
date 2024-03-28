@@ -15,10 +15,10 @@ const Modal = ({ open, onClose, title, children }) => {
         transition-all duration-300 ease-in-out w-80 md:w-[28rem] lg:w-[32rem] max-h-[calc(100vh-2rem)] overflow-y-auto"
         >
           <div className="flex items-center justify-between p-1 pb-2 mb-5 border-b-2 border-secondary-200">
-            <p className="font-bold text-xl">{title}</p>
+            <p className="font-bold text-xl text-secondary-700">{title}</p>
             <IoClose
               onClick={onClose}
-              className="w-6 h-6 cursor-pointer hover:rotate-180 transition-all duration-700"
+              className="w-6 h-6 cursor-pointer text-secondary-700 hover:rotate-180 transition-all duration-700"
             />
           </div>
           <div className="text-wrap">{children}</div>
