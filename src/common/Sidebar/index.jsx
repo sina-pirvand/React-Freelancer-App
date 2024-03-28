@@ -1,12 +1,9 @@
-import { NavLink } from "react-router-dom";
-import { RxDashboard } from "react-icons/rx";
-import { HiOutlineCollection } from "react-icons/hi";
-
-const Sidebar = () => {
+const Sidebar = ({ children }) => {
   return (
     <div className="px-4 py-8 border-l border-secondary-100 bg-secondary-0">
       <ul className="flex flex-col gap-4">
-        <li>
+        {children}
+        {/* <li>
           <NavLink
             to="/owner/dashboard"
             className={({ isActive }) =>
@@ -31,7 +28,7 @@ const Sidebar = () => {
             <HiOutlineCollection className="w-6 h-6" />
             <span>پروژه ها</span>
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
