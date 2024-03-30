@@ -1,8 +1,7 @@
 import { HiOutlineCollection } from "react-icons/hi";
 import { TiDocumentText } from "react-icons/ti";
 import { FaRegHandshake } from "react-icons/fa6";
-
-import Stat from "./Stat";
+import Stat from "../../common/Stat";
 
 const Stats = ({ projects }) => {
   const numOfProjects = projects.length;

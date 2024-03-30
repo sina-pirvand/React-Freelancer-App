@@ -1,5 +1,11 @@
+import DashboardLayout from "../features/freelancer/DashboardLayout";
+
 const FreelancerDashboard = () => {
-  return <div>FreelancerDashboard</div>;
+  return (
+    <div>
+      <DashboardLayout />
+    </div>
+  );
 };
 
 export default FreelancerDashboard;
