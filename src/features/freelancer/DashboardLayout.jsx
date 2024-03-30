@@ -1,6 +1,6 @@
 import Loading from "../../common/Loading";
 import useProposals from "../proposals/useProposals";
-import DashboardHeader from "./DashboardHeader";
+import DashboardHeader from "../../common/DashboardHeader";
 import Stats from "./Stats";
 
 const DashboardLayout = () => {
