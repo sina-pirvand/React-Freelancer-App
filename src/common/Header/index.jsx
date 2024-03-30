@@ -7,11 +7,10 @@ const Header = () => {
 
   return (
     <div
-      className={`col-span-2 px-8 py-4 border-b border-secondary-200 bg-secondary-0 flex justify-between lg:ps-[16.5rem] ${
+      className={`col-span-2 px-8 py-4 border-b border-secondary-200 bg-secondary-0 flex justify-end ${
         isLoading ? "blur-sm" : ""
       }`}
     >
-      <h1 className="text-secondary-700 text-xl font-bold">پروژه های شما</h1>
       <div className="flex items-center gap-x-4">
         <HeaderMenu />
         <UserAvatar />
