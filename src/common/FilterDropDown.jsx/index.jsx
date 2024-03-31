@@ -9,6 +9,7 @@ const FilterDropDown = ({ options, filterField }) => {
     searchParams.set(filterField, e.target.value);
     setSearchParams(searchParams);
   };
+
   return <Select onChange={handleChange} value={value} options={options} />;
 };
 
