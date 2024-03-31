@@ -25,7 +25,7 @@ const ProjectRow = ({ project, index }) => {
       </td>
 
       {/* //Note: CHANGE AFTER DATABASE PROBLEM */}
-      <td>{"برنامه نویسی"}</td>
+      <td>{project.category?.title || "برنامه نویسی"}</td>
 
       <td>{toPersianNumbersWithComma(project.budget)}</td>
       <td>{toLocalDateShort(project.deadline)}</td>
