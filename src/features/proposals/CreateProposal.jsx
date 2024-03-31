@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Textfield from "../../common/Textfield";
 import Loading from "../../common/Loading";
+import useCreateProposal from "./useCreateProposal";
 
 const CreateProposal = ({ onClose, projectId }) => {
   //Note: ProjectId is needed to identify for which project the proposal will be added
@@ -11,8 +12,16 @@ const CreateProposal = ({ onClose, projectId }) => {
     formState: { errors },
   } = useForm();
 
+  const { isCreating, createProposal } = useCreateProposal();
+
   const onSubmit = (data) => {
-    console.log(data);
+    createProposal(
+      { ...data, projectId },
+      {
+        onSuccess: () => onClose(),
+      }
+    );
+    // console.log(data);
   };
 
   return (
@@ -55,7 +64,7 @@ const CreateProposal = ({ onClose, projectId }) => {
           errors={errors}
         />
         <div className="pt-4">
-          {1 ? (
+          {isCreating ? (
             <Loading />
           ) : (
             <button
