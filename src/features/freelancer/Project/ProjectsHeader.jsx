@@ -40,9 +40,9 @@ const ProjectHeader = () => {
 
         {/* .../.../?category="..." */}
         <FilterDropDown
-          filterField="categoty"
+          filterField="category"
           options={[
-            { label: "دسته بندی (همه)", value: "ALL" },
+            { value: "ALL", label: "دسته بندی (همه)" },
             ...transformedCategories,
           ]}
         />
