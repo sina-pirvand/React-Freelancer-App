@@ -16,7 +16,7 @@ const useCategories = () => {
     },
     {
       _id: "66015bd02b9267ebd323f8da",
-      title: "UI",
+      title: "ui",
     },
   ];
 

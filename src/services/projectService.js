@@ -31,7 +31,7 @@ export const getProjectApi = (id) => {
 };
 
 // GET ALL PROJECTS
-export const getProjectsApi = () => {
+export const getProjectsApi = (qs) => {
   // data = {status = "OPEN"/"CLOSED"}
-  return http.get("/project/list").then(({ data }) => data.data);
+  return http.get(`/project/list${qs}`).then(({ data }) => data.data);
 };
