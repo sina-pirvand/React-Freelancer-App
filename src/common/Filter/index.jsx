@@ -10,7 +10,7 @@ const Filter = ({ filterField, options }) => {
   };
 
   return (
-    <div className="flex items-center gap-x-2 text-xs border border-secondary-300 px-2 rounded-xl text-secondary-500 bg-secondary-100">
+    <div className="flex items-center gap-x-2 text-xs border border-secondary-300 px-2 rounded-xl text-secondary-500 bg-secondary-0">
       <span className="text-[0.9rem] font-bold">وضعیت:</span>
       <div className="flex items-center gap-x-2  p-1.5 ">
         {options.map((item) => {
