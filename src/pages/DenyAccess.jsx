@@ -13,7 +13,7 @@ const DenyAccess = () => {
         </p>
         <button
           onClick={() => {
-            navigate("/");
+            navigate("/auth");
           }}
           className="border-b-2 border-primary-500 text-primary-500 block mx-auto pt-20 text-2xl font-bold"
         >

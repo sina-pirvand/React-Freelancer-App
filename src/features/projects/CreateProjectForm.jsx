@@ -31,7 +31,7 @@ const CreateProjectForm = ({ onClose, projectToEdit = {} }) => {
   const { categories } = useCategories();
   const { isCreating, createProject } = useCreateProject();
   const { isEditing, editProject } = useEditProject();
-
+  console.log(categories);
   const {
     register,
     formState: { errors },
