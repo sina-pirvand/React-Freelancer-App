@@ -17,6 +17,8 @@ import SubmittedProjects from "./pages/SubmittedProjects";
 import FreelancerLayout from "./features/freelancer/FreelancerLayout";
 import ProtectedRoute from "./common/ProtectedRoute";
 import DenyAccess from "./pages/DenyAccess";
+import AdminLayout from "./features/admin/AdminLayout";
+import AdminDashboard from "./pages/AdminDashboard";
 
 function App() {
   const queryClient = new QueryClient();
@@ -55,6 +57,18 @@ function App() {
             <Route path="dashboard" element={<FreelancerDashboard />} />
             <Route path="proposals" element={<Proposals />} />
             <Route path="projects" element={<SubmittedProjects />} />
+          </Route>
+
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminLayout />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Navigate to="dashboard" replace />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
           </Route>
 
           <Route path="/deny-access" element={<DenyAccess />} />

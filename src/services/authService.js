@@ -22,3 +22,7 @@ export const getUser = (data) => {
 export const logoutApi = () => {
   return http.post("/user/logout").then(({ data }) => data.data);
 };
+
+export const getUsersApi = (data) => {
+  return http.get("/admin/user/list", data).then(({ data }) => data.data);
+};
