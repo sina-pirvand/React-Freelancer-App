@@ -19,6 +19,7 @@ import ProtectedRoute from "./common/ProtectedRoute";
 import DenyAccess from "./pages/DenyAccess";
 import AdminLayout from "./features/admin/AdminLayout";
 import AdminDashboard from "./pages/AdminDashboard";
+import Users from "./pages/Users";
 
 function App() {
   const queryClient = new QueryClient();
@@ -69,6 +70,7 @@ function App() {
           >
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="users" element={<Users />} />
           </Route>
 
           <Route path="/deny-access" element={<DenyAccess />} />

@@ -6,8 +6,10 @@ import useOwnerProjects from "./useOwnerProject";
 
 const ProjectTable = () => {
   const { isLoading, projects } = useOwnerProjects();
+
   if (isLoading) return <Loading />;
   if (!projects.length) return <Empty resourceName="پروژه" />;
+
   return (
     <Table>
       <Table.Header>
