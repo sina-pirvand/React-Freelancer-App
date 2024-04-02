@@ -14,7 +14,7 @@ const UsersTable = () => {
     <Table>
       <Table.Header>
         <th>#</th>
-        <th>نام</th>
+        <th>نام کاربر</th>
         <th>ایمیل</th>
         <th>شماره موبایل</th>
         <th>نقش</th>

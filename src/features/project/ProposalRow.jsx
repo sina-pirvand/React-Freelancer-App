@@ -39,7 +39,9 @@ function ProposalRow({ proposal, index }) {
         {truncateText(proposal.description, 50)}
       </td>
       <td className="min-w-[130px]">
-        <span className={`badge ${statusStyle[status].className}`}>
+        <span
+          className={`badge ${statusStyle[status].className} transition-all duration-1000`}
+        >
           {statusStyle[status].label}
         </span>
       </td>

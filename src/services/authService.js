@@ -23,6 +23,13 @@ export const logoutApi = () => {
   return http.post("/user/logout").then(({ data }) => data.data);
 };
 
-export const getUsersApi = (data) => {
-  return http.get("/admin/user/list", data).then(({ data }) => data.data);
+export const getUsersApi = () => {
+  return http.get("/admin/user/list").then(({ data }) => data.data);
+};
+
+export const changeUserStatusApi = ({ userId, data }) => {
+  // data = {status:0/1/2}
+  return http
+    .patch(`/admin/user/verify/${userId}`, data)
+    .then(({ data }) => data.data);
 };
