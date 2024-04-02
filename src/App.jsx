@@ -16,6 +16,7 @@ import Proposals from "./pages/Proposals";
 import SubmittedProjects from "./pages/SubmittedProjects";
 import FreelancerLayout from "./features/freelancer/FreelancerLayout";
 import ProtectedRoute from "./common/ProtectedRoute";
+import DenyAccess from "./pages/DenyAccess";
 
 function App() {
   const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ function App() {
             <Route path="projects" element={<SubmittedProjects />} />
           </Route>
 
+          <Route path="/deny-access" element={<DenyAccess />} />
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
