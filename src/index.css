@@ -90,6 +90,26 @@
   }
 }
 
+/* SCROLLBAR STYLES */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(229, 231, 235);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(110, 138, 255);
+  border-radius: 5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(74, 109, 255);
+}
+/* --- */
+
 li.active {
   background-color: aquamarine;
 }
