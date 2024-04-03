@@ -29,7 +29,6 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Toaster position="top-left" reverseOrder={false} />
         <Routes>
-          <Route path="/auth" element={<Auth />} />
           <Route path="/complete-profile" element={<CompleteProfile />} />
 
           <Route
@@ -76,7 +75,12 @@ function App() {
           </Route>
 
           <Route path="/deny-access" element={<DenyAccess />} />
-          <Route path="/" element={<Home />} />
+
+          <Route path="/" element={<Auth />}>
+            <Route index element={<Navigate to="auth" replace />} />
+            <Route path="auth" element={<Auth />} />
+          </Route>
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </QueryClientProvider>
