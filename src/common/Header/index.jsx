@@ -7,13 +7,13 @@ const Header = () => {
 
   return (
     <div
-      className={`col-span-2 px-8 py-4 border-b border-secondary-200 bg-secondary-0 flex justify-between md:justify-end ${
+      className={`col-span-2 px-4 md:px-8 py-4 border-b border-secondary-200 bg-secondary-0 flex justify-end ${
         isLoading ? "blur-sm" : ""
       }`}
     >
-      <div className="flex md:hidden">
+      {/* <div className="flex md:hidden">
         <button className="p-1 bg-red-100">===</button>
-      </div>
+      </div> */}
       <div className="flex items-center gap-x-4">
         <HeaderMenu />
         <UserAvatar />
