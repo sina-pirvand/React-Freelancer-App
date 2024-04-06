@@ -12,7 +12,7 @@ const Modal = ({ open, onClose, title, children }) => {
         <div
           ref={ref}
           className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-md bg-secondary-0 p-4 
-        transition-all duration-300 ease-in-out w-80 md:w-[28rem] lg:w-[32rem] max-h-[calc(100vh-2rem)] overflow-y-auto"
+        transition-all duration-300 ease-in-out w-[350px] md:w-[30rem] lg:w-[34rem] max-h-[calc(100vh-2rem)] overflow-y-auto"
         >
           <div className="flex items-center justify-between p-1 pb-2 mb-5 border-b-2 border-secondary-200">
             <p className="font-bold text-xl text-secondary-700">{title}</p>
