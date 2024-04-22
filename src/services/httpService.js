@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const Base_URL = "http://localhost:5000/api";
+// const Base_URL = "http://localhost:5000/api";
+const Base_URL = "https://freelancera.liara.run/api";
 
 const app = axios.create({
   baseURL: Base_URL,

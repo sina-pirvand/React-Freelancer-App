@@ -10,7 +10,7 @@ const Stats = ({ projects }) => {
   ).length;
   const numOfProposals = projects.reduce(
     (acc, project) => project.proposals.length + acc,
-    -1
+    0
   );
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-items-center max-w-screen-lg mx-auto mt-10 gap-x-2 gap-y-4">

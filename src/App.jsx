@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import "./App.css";
 import Auth from "./pages/Auth";
 import CompleteProfile from "./pages/CompleteProfile";
-import Home from "./pages/Home";
+// import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import OwnerDashboard from "./pages/OwnerDashboard";
 import Projects from "./pages/Projects";

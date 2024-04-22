@@ -24,8 +24,7 @@ const AuthContainer = () => {
       setStep(2);
       toast.success(res.message);
     } catch (error) {
-      toast.error(`${error?.response?.data?.message}
-        فرمت شماره نادرست است`);
+      toast.error(`مشکلی در فرآیند ارسال کد پیش آمد`);
     }
   };
 
