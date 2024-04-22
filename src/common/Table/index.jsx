@@ -1,6 +1,6 @@
 const Table = ({ children }) => {
   return (
-    <div className="bg-secondary-0 overflow-x-auto">
+    <div>
       <table>{children}</table>
     </div>
   );
@@ -21,7 +21,7 @@ const TableBody = ({ children }) => {
 };
 
 const TableRow = ({ children }) => {
-  return <tr>{children}</tr>;
+  return <tr className="bg-secondary-0">{children}</tr>;
 };
 
 Table.Header = TableHeader;
